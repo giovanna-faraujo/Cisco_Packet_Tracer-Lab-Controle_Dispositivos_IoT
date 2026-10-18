@@ -11,17 +11,6 @@ A atividade envolveu conectar uma sirene, portas, um sensor de movimento e uma w
 
 ---
 
-## Origem do laboratório
-
-| Informação | Descrição |
-|---|---|
-| Plataforma | Cisco Networking Academy (NetAcad) |
-| Atividade | Packet Tracer - Implementar segurança física com dispositivos de IoT |
-| Ferramenta | Cisco Packet Tracer |
-| Tipo | Laboratório educacional |
-
----
-
 ## Objetivos
 
 - Conectar dispositivos IoT a uma rede wireless protegida.
