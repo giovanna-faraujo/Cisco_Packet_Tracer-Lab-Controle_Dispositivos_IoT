@@ -1,5 +1,5 @@
 
-# Laboratório da Cisco Networking Academy Segurança física com dispositivos IoT
+# Laboratório da Cisco Networking Academy: Segurança física com dispositivos IoT
 
 ## Visão geral
 
