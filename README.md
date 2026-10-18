@@ -190,19 +190,6 @@ flowchart TD
     G --> H[Explorar funcionalidades de monitoramento]
 ```
 
-## Funcionalidades estudadas
-
-| Recurso | Finalidade |
-|---|---|
-| Sirene | Emitir alertas sonoros |
-| Portas | Simular abertura e fechamento |
-| Sensor de movimento | Identificar movimentos no ambiente |
-| Webcam | Permitir visualização remota |
-| Filtragem MAC | Controlar dispositivos autorizados |
-| Servidor IoT | Centralizar o monitoramento |
-
----
-
 ## Conhecimentos adquiridos
 
 Este laboratório ajudou a compreender como dispositivos IoT podem ser utilizados para melhorar o monitoramento e a segurança física de uma residência.
