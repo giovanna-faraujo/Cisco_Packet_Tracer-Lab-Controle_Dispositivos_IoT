@@ -22,6 +22,31 @@ A atividade envolveu conectar sirene, portas, sensor de movimento e webcam à re
 
 ---
 
+## Etapas do laboratório
+
+1. **Conexão IoT:** ligação entre porta e sirene pela interface digital `D0`, permitindo simular uma resposta à abertura da porta.
+2. **Rede wireless:** configuração dos dispositivos para utilizar a rede `HomeNet` com autenticação WPA2-PSK.
+3. **Endereçamento:** utilização de DHCP para receber automaticamente as configurações IPv4.
+4. **Controle de acesso:** habilitação da filtragem MAC no roteador, permitindo apenas endereços cadastrados.
+5. **Monitoramento:** registro e consulta dos dispositivos no servidor IoT.
+
+---
+
+## Fluxograma do processo
+
+```mermaid
+flowchart TD
+    A[Preparar ambiente residencial] --> B[Conectar sirene e porta]
+    B --> C[Configurar rede wireless]
+    C --> D[Utilizar DHCP]
+    D --> E[Aplicar filtragem MAC]
+    E --> F[Registrar dispositivos no servidor IoT]
+    F --> G[Consultar dispositivos no portal]
+    G --> H[Explorar recursos de monitoramento]
+```
+
+---
+
 ## Onde esse conhecimento pode ser aplicado?
 
 ### Cenário fictício: casa monitorada durante uma viagem
@@ -126,16 +151,6 @@ O servidor reúne o acompanhamento dos dispositivos em uma interface.
 
 ---
 
-## Etapas do laboratório
-
-1. **Conexão IoT:** ligação entre porta e sirene pela interface digital `D0`, permitindo simular uma resposta à abertura da porta.
-2. **Rede wireless:** configuração dos dispositivos para utilizar a rede `HomeNet` com autenticação WPA2-PSK.
-3. **Endereçamento:** utilização de DHCP para receber automaticamente as configurações IPv4.
-4. **Controle de acesso:** habilitação da filtragem MAC no roteador, permitindo apenas endereços cadastrados.
-5. **Monitoramento:** registro e consulta dos dispositivos no servidor IoT.
-
----
-
 ### Endereços MAC identificados
 
 | Dispositivo | Endereço MAC |
@@ -152,21 +167,6 @@ O servidor reúne o acompanhamento dos dispositivos em uma interface.
 O portal apresenta os estados da sirene, das portas e do sensor de movimento, além da imagem da webcam.
 
 ![Acompanhamento dos dispositivos no portal IoT](https://github.com/user-attachments/assets/16e318ea-fca0-4cd1-b4db-c2fd510910ee)
-
----
-
-## Fluxograma do processo
-
-```mermaid
-flowchart TD
-    A[Preparar ambiente residencial] --> B[Conectar sirene e porta]
-    B --> C[Configurar rede wireless]
-    C --> D[Utilizar DHCP]
-    D --> E[Aplicar filtragem MAC]
-    E --> F[Registrar dispositivos no servidor IoT]
-    F --> G[Consultar dispositivos no portal]
-    G --> H[Explorar recursos de monitoramento]
-```
 
 ---
 
@@ -198,9 +198,3 @@ Os conceitos também são úteis para identificar equipamentos conectados, inves
 | Endereço IP | Identificação usada para a comunicação de um dispositivo na rede. |
 | Endereço MAC | Identificador de uma interface de rede, usado neste laboratório na lista de acesso. |
 | Filtragem MAC | Regra que permite ou bloqueia conexões conforme os endereços MAC cadastrados. |
-
----
-
-## Origem da atividade
-
-Laboratório educacional realizado na **Cisco Networking Academy (NetAcad)**, utilizando o **Cisco Packet Tracer**. Esta documentação apresenta as configurações informadas e os conceitos estudados.
