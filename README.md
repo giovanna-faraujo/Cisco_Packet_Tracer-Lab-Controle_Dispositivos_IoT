@@ -1,30 +1,45 @@
-
-# Laboratório da Cisco Networking Academy: Segurança física com dispositivos IoT
+# Segurança física com dispositivos IoT
 
 ## Visão geral
 
-Utilizei o Cisco Packet Tracer para aprender como dispositivos inteligentes podem ajudar a monitorar a segurança de uma residência.
+Neste laboratório educacional da Cisco Networking Academy (NetAcad), utilizei o Cisco Packet Tracer para conhecer como dispositivos inteligentes podem ajudar a monitorar uma residência.
 
-A atividade envolveu conectar uma sirene, portas, um sensor de movimento e uma webcam à rede wireless, configurar o controle de acesso por endereço MAC e acompanhar os dispositivos por meio de um servidor IoT.
+A atividade envolveu conectar sirene, portas, sensor de movimento e webcam à rede wireless, configurar o controle de acesso por endereço MAC e acompanhar os equipamentos em um servidor IoT.
 
-<img width="500" height="221" alt="Ambiente" src="https://github.com/user-attachments/assets/daa8a1a3-9617-4d81-a2e4-1ee57ac5bc61" />
+![Ambiente do laboratório](https://github.com/user-attachments/assets/daa8a1a3-9617-4d81-a2e4-1ee57ac5bc61)
 
 ---
 
 ## Objetivos
 
 - Conectar dispositivos IoT a uma rede wireless protegida.
-- Configurar a filtragem MAC para controlar o acesso à rede.
-- Registrar dispositivos em um servidor IoT.
-- Entender como sensores, sirenes e câmeras ajudam no monitoramento de ambientes.
+- Configurar autenticação WPA2-PSK e filtragem MAC.
+- Utilizar DHCP para obter endereços IP automaticamente.
+- Acompanhar os dispositivos por meio de um servidor IoT.
+- Entender como portas, sensores, câmeras e sirenes podem contribuir para o monitoramento.
+
+<img width="636" height="386" alt="topologia" src="https://github.com/user-attachments/assets/97af9700-4efc-4417-97d4-de93b81c9813" />
+
+---
+
+## Onde esse conhecimento pode ser aplicado?
+
+### Cenário fictício: casa monitorada durante uma viagem
+
+**Situação:** uma família vai viajar e quer acompanhar a entrada da residência enquanto está fora.
+
+**Aplicação:** uma câmera permite observar o ambiente, o sensor informa a presença de movimento e a porta pode ser associada a uma sirene para sinalizar uma abertura. Os equipamentos ficam disponíveis em um sistema de monitoramento.
+
+**Benefício:** a família consegue acompanhar diferentes dispositivos em um só lugar. O exemplo utiliza os mesmos conceitos de conectividade, integração e monitoramento estudados no laboratório; não representa um teste adicional realizado.
+
 
 ---
 
 ## Configurações dos dispositivos
 
-### 1. Roteador wireless
+### Roteador wireless
 
-Responsável pela conexão dos dispositivos IoT e pelo controle de quais equipamentos podem acessar a rede.
+Responsável pela conexão wireless e pelo controle dos equipamentos autorizados.
 
 | Parâmetro | Configuração |
 |---|---|
@@ -36,19 +51,14 @@ Responsável pela conexão dos dispositivos IoT e pelo controle de quais equipam
 | Filtragem MAC | Habilitada |
 | Política de acesso | Permitir somente endereços MAC cadastrados |
 
-**Como funciona:** o roteador utiliza a autenticação wireless e uma lista de endereços MAC autorizados para controlar a conexão dos dispositivos.
-
-A filtragem MAC oferece um controle adicional, mas não substitui a autenticação e a criptografia da rede.
+A filtragem MAC adiciona um controle de acesso, mas não substitui a autenticação e a criptografia da rede, pois endereços MAC podem ser falsificados.
 
 ---
 
-### 2. Home_Siren (sirene)
-
-Dispositivo utilizado para emitir um alerta sonoro quando acionado por um evento.
+### Home_Siren (sirene)
 
 | Parâmetro | Configuração |
 |---|---|
-| Dispositivo | `Home_Siren` |
 | Interface | `Wireless0` |
 | SSID | `HomeNet` |
 | Autenticação | WPA2-PSK |
@@ -56,65 +66,54 @@ Dispositivo utilizado para emitir um alerta sonoro quando acionado por um evento
 | Endereço MAC | `00:90:2B:C8:C6:E2` |
 | Configuração IPv4 | DHCP |
 | Endereço IPv4 | `192.168.0.104` |
-| Máscara de sub-rede | `255.255.255.0` |
+| Máscara | `255.255.255.0` |
 | Conexão IoT | Interface digital `D0` |
 
-**Como funciona:** a sirene pode ser associada à porta para emitir um alerta quando ocorrer uma abertura.
+A sirene pode ser ligada à porta para simular um alerta quando ela é aberta.
 
 ---
 
-### 3. Home_Doors (portas)
-
-Dispositivo que representa a abertura e o fechamento das portas da residência.
+### Home_Doors (portas)
 
 | Parâmetro | Configuração |
 |---|---|
-| Dispositivo | `Home_Doors` |
 | SSID | `HomeNet` |
 | Autenticação | WPA2-PSK |
 | Endereço MAC | `00:0A:F3:DB:2E:37` |
 | Configuração IPv4 | DHCP |
 | Conexão IoT | Interface digital `D0` |
 
-**Como funciona:** a porta pode ser conectada à sirene, permitindo simular um alerta quando ela é aberta.
+As portas representam eventos de abertura e fechamento e podem interagir com a sirene.
 
 ---
 
-### 4. Home_Motion_Sensor (sensor de movimento)
-
-Dispositivo responsável por identificar movimentos no ambiente.
+### Home_Motion_Sensor (sensor de movimento)
 
 | Parâmetro | Configuração |
 |---|---|
-| Dispositivo | `Home_Motion_Sensor` |
 | SSID | `HomeNet` |
 | Autenticação | WPA2-PSK |
 | Endereço MAC | `00:40:0B:39:21:24` |
 | Configuração IPv4 | DHCP |
 
-**Como funciona:** o sensor identifica movimentos e permite acompanhar seu estado pelo sistema de monitoramento IoT.
+O sensor identifica movimento e permite acompanhar seu estado no sistema IoT.
 
 ---
 
-### 5. Home_Webcam (câmera)
-
-Dispositivo utilizado para visualizar imagens do ambiente residencial.
+### Home_Webcam (câmera)
 
 | Parâmetro | Configuração |
 |---|---|
-| Dispositivo | `Home_Webcam` |
 | SSID | `HomeNet` |
 | Autenticação | WPA2-PSK |
 | Endereço MAC | `00:D0:58:D1:C4:11` |
 | Configuração IPv4 | DHCP |
 
-**Como funciona:** a webcam permite visualizar imagens do ambiente pelo portal IoT, ajudando no acompanhamento remoto da residência.
+A webcam permite visualizar imagens do ambiente pelo portal IoT.
 
 ---
 
-### 6. Servidor de registro IoT
-
-Responsável por centralizar o acesso e o monitoramento dos dispositivos inteligentes.
+### Servidor de registro IoT
 
 | Parâmetro | Configuração |
 |---|---|
@@ -123,29 +122,21 @@ Responsável por centralizar o acesso e o monitoramento dos dispositivos intelig
 | Dispositivos apresentados | Sirene, portas, sensor de movimento e webcam |
 | Funcionalidades | Visualização de estados e imagens da webcam |
 
-**Como funciona:** os dispositivos são registrados no servidor para que possam ser acompanhados em uma única interface.
+O servidor reúne o acompanhamento dos dispositivos em uma interface.
 
 ---
 
 ## Etapas do laboratório
 
-### 1. Conexão dos dispositivos
+1. **Conexão IoT:** ligação entre porta e sirene pela interface digital `D0`, permitindo simular uma resposta à abertura da porta.
+2. **Rede wireless:** configuração dos dispositivos para utilizar a rede `HomeNet` com autenticação WPA2-PSK.
+3. **Endereçamento:** utilização de DHCP para receber automaticamente as configurações IPv4.
+4. **Controle de acesso:** habilitação da filtragem MAC no roteador, permitindo apenas endereços cadastrados.
+5. **Monitoramento:** registro e consulta dos dispositivos no servidor IoT.
 
-No ambiente residencial do Packet Tracer, foi utilizada uma conexão IoT entre a sirene e a porta.
+---
 
-Essa ligação permite simular o acionamento de um alerta quando a porta é aberta.
-
-### 2. Configuração da rede wireless
-
-Os dispositivos IoT foram configurados para utilizar a rede `HomeNet`, com autenticação WPA2-PSK e endereçamento automático por DHCP.
-
-O DHCP permite que os equipamentos recebam seus endereços IP automaticamente, facilitando a conexão à rede.
-
-### 3. Controle de acesso por MAC
-
-O roteador utiliza uma lista de endereços MAC autorizados.
-
-Foram identificados os seguintes dispositivos:
+### Endereços MAC identificados
 
 | Dispositivo | Endereço MAC |
 |---|---|
@@ -154,26 +145,13 @@ Foram identificados os seguintes dispositivos:
 | Home_Motion_Sensor | `00:40:0B:39:21:24` |
 | Home_Webcam | `00:D0:58:D1:C4:11` |
 
-Esse recurso permite controlar quais dispositivos podem utilizar a rede wireless.
-
-**Importante:** endereços MAC podem ser falsificados. Por isso, a filtragem deve ser utilizada como uma medida complementar de segurança.
-
 ---
 
-### 4. Monitoramento remoto
+### Acompanhamento no portal IoT
 
-O servidor IoT permite acompanhar os dispositivos conectados por meio de uma interface web.
+O portal apresenta os estados da sirene, das portas e do sensor de movimento, além da imagem da webcam.
 
-No portal do laboratório, são apresentados:
-
-- Estado da sirene.
-- Estado das portas.
-- Estado do sensor de movimento.
-- Imagem da webcam.
-
-Isso permite compreender como diferentes equipamentos podem ser acompanhados em um único sistema.
-
-<img width="254" height="227" alt="Acompanhamento IoT" src="https://github.com/user-attachments/assets/16e318ea-fca0-4cd1-b4db-c2fd510910ee" />
+![Acompanhamento dos dispositivos no portal IoT](https://github.com/user-attachments/assets/16e318ea-fca0-4cd1-b4db-c2fd510910ee)
 
 ---
 
@@ -183,32 +161,46 @@ Isso permite compreender como diferentes equipamentos podem ser acompanhados em 
 flowchart TD
     A[Preparar ambiente residencial] --> B[Conectar sirene e porta]
     B --> C[Configurar rede wireless]
-    C --> D[Configurar enderecamento DHCP]
+    C --> D[Utilizar DHCP]
     D --> E[Aplicar filtragem MAC]
     E --> F[Registrar dispositivos no servidor IoT]
     F --> G[Consultar dispositivos no portal]
-    G --> H[Explorar funcionalidades de monitoramento]
+    G --> H[Explorar recursos de monitoramento]
 ```
+
+---
 
 ## Conhecimentos adquiridos
 
-Este laboratório ajudou a compreender como dispositivos IoT podem ser utilizados para melhorar o monitoramento e a segurança física de uma residência.
-
-Os principais aprendizados foram:
-
-- **Conectividade wireless:** entender como diferentes dispositivos se conectam à mesma rede.
-- **Segurança de acesso:** compreender o funcionamento da autenticação WPA2-PSK e da filtragem MAC.
-- **Endereçamento IP:** entender como o DHCP facilita a configuração dos equipamentos.
-- **Monitoramento IoT:** conhecer como sensores, câmeras e sirenes podem ser acompanhados remotamente.
-- **Integração de dispositivos:** compreender como equipamentos podem interagir para responder a eventos.
+- **Conectividade wireless:** compreendi como diferentes dispositivos podem utilizar a mesma rede.
+- **Controle de acesso:** estudei a autenticação WPA2-PSK e a filtragem MAC como medidas de segurança.
+- **Endereçamento IP:** observei como o DHCP facilita a configuração dos dispositivos.
+- **Monitoramento IoT:** conheci uma interface para acompanhar sensores, portas, sirenes e câmeras.
+- **Integração:** entendi como a ligação entre dispositivos pode permitir respostas a eventos.
 
 ---
 
 ### Relação com Suporte de TI e Cybersecurity
 
-Os conceitos estudados também estão presentes em ambientes profissionais, principalmente na identificação de dispositivos, configuração de redes, controle de acesso e investigação de problemas de conectividade.
+Os conceitos também são úteis para identificar equipamentos conectados, investigar falhas de conectividade e compreender controles de acesso. O laboratório reforça a importância de conhecer os dispositivos de uma rede e aplicar medidas de segurança complementares.
 
-A atividade reforçou a importância de conhecer os equipamentos conectados à rede e utilizar diferentes medidas de segurança para reduzir acessos não autorizados.
+---
 
-Laboratório educacional realizado no Cisco Packet Tracer, com documentação própria dos conceitos e configurações estudados.
+## Entendendo os termos técnicos
 
+| Termo | Explicação simples |
+|---|---|
+| IoT | Objetos conectados à rede, como câmeras e sensores inteligentes. |
+| SSID | Nome que identifica uma rede wireless, como `HomeNet`. |
+| WPA2-PSK | Proteção que usa uma senha compartilhada para autenticar dispositivos na rede wireless. |
+| AES | Tecnologia usada para criptografar dados, dificultando sua leitura por terceiros. |
+| DHCP | Serviço que distribui automaticamente configurações de rede, como endereços IP. |
+| Endereço IP | Identificação usada para a comunicação de um dispositivo na rede. |
+| Endereço MAC | Identificador de uma interface de rede, usado neste laboratório na lista de acesso. |
+| Filtragem MAC | Regra que permite ou bloqueia conexões conforme os endereços MAC cadastrados. |
+
+---
+
+## Origem da atividade
+
+Laboratório educacional realizado na **Cisco Networking Academy (NetAcad)**, utilizando o **Cisco Packet Tracer**. Esta documentação apresenta as configurações informadas e os conceitos estudados.
