@@ -6,7 +6,7 @@ Neste laboratório educacional da Cisco Networking Academy (NetAcad), utilizei o
 
 A atividade envolveu conectar sirene, portas, sensor de movimento e webcam à rede wireless, configurar o controle de acesso por endereço MAC e acompanhar os equipamentos em um servidor IoT.
 
-![Ambiente do laboratório](https://github.com/user-attachments/assets/daa8a1a3-9617-4d81-a2e4-1ee57ac5bc61)
+<img width="1536" height="1024" alt="Mapa mental de segurança IoT em casa" src="https://github.com/user-attachments/assets/ba6ad17e-b031-4fc9-9d3f-7df95dfafb74" />
 
 ---
 
@@ -18,7 +18,7 @@ A atividade envolveu conectar sirene, portas, sensor de movimento e webcam à re
 - Acompanhar os dispositivos por meio de um servidor IoT.
 - Entender como portas, sensores, câmeras e sirenes podem contribuir para o monitoramento.
 
-<img width="636" height="386" alt="topologia" src="https://github.com/user-attachments/assets/97af9700-4efc-4417-97d4-de93b81c9813" />
+![Ambiente do laboratório](https://github.com/user-attachments/assets/daa8a1a3-9617-4d81-a2e4-1ee57ac5bc61)
 
 ---
 
